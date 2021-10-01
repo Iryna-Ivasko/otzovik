@@ -1,0 +1,65 @@
+.site-header {
+  .primary-navigation {
+
+
+    @media screen and (min-width: 921px) {
+      display: flex;
+      align-items: center;
+      margin: 0 auto 0 5px;
+    }
+    @media screen and (max-width: 480px) {
+      margin-left: auto;
+    }
+
+    & > .primary-menu-container {
+      @media screen and (max-width: 420px) {
+        background-color: $secondary-color;
+      }
+    }
+
+    .current-menu-item {
+      a {
+        font-weight: bold;
+
+        &:hover,
+        &:focus,
+        &:visited {
+          text-decoration-style: solid;
+        }
+      }
+    }
+
+    .primary-menu-container > ul > .menu-item > a {
+      color: $white;
+      font-size: rem-calc(17);
+      font-family: $body-font-family;
+      padding: 0 12px;
+      @include breakpoint(medium only) {
+        font-size: rem-calc(15);
+        padding: 0 8px;
+      }
+
+      &:hover,
+      &:focus,
+      &:visited {
+        text-decoration: none;
+        opacity: 0.7;
+      }
+    }
+
+    .btn-burger {
+      margin-bottom: 0;
+      outline: none;
+
+      .svg-icon {
+        color: $white;
+      }
+    }
+  }
+}
+
+.primary-navigation-open {
+  .menu-button-container {
+    background-color: $secondary-color;
+  }
+}

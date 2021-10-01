@@ -1,0 +1,105 @@
+.site-content {
+  .section {
+    &--campaigns {
+      .campaigns-wrapper {
+        .toggle-filter {
+          font-size: rem-calc(15);
+          width: 100%;
+          position: relative;
+          &.opened{
+            .title{
+              &:before {
+                transform: translate(-50%, -50%) rotate(90deg);
+              }
+            }
+
+          }
+          .title{
+            display: block;
+            width: fit-content;
+            padding-right: 20px;
+            &:before {
+              position: absolute;
+              top: 50%;
+              left: 60px;
+              width: 10px;
+              height: 10px;
+              transition: all 0.36s ease;
+              transform: translate(-50%, -50%) rotate(-90deg);
+              content: '';
+              background-image: url("../img/arrow-pag.svg");
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+          }
+        }
+
+        .filter {
+          @include breakpoint(small down) {
+            padding: 12px 20px;
+            margin-right: auto;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.36s ease;
+            &.active {
+              height: auto;
+              opacity: 1;
+            }
+          }
+        }
+
+        .categories {
+          padding-top: 12px;
+
+          &__item {
+            font-size: rem-calc(17);
+
+            input[type="radio"] {
+              display: none;
+
+              &:checked {
+                & + label {
+                  color: $primary-color;
+                }
+              }
+            }
+
+            label {
+              padding: 5px 0 10px;
+              cursor: pointer;
+              transition: all 0.36s ease;
+              font-weight: bold;
+              line-height: rem-calc(25);
+              margin: 0;
+
+              &:hover {
+                color: $primary-color;
+                opacity: 0.6;
+              }
+            }
+          }
+
+          .children {
+            .categories {
+              &__item {
+                &:last-of-type {
+                  label {
+                    padding-bottom: 15px;
+                  }
+                }
+
+                label {
+                  font-weight: 300;
+                  padding: 0 0 10px 15px;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

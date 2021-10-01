@@ -1,0 +1,170 @@
+.search-form {
+  margin: 5px 0;
+
+  .search-field-wrapper {
+    position: relative;
+    margin: 0 30px 0 0;
+    flex-grow: 1;
+    @include breakpoint(small down) {
+      width: 70%;
+      margin: 0 10px 0 0;
+    }
+
+    .clear-search {
+      display: none;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      max-height: 70%;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      background-image: url("../img/cross-min.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .search-field {
+    margin: 0;
+    padding: 12px 15px;
+    border-radius: 50px;
+    border: 1px solid $dark-gray;
+    font-size: rem-calc(14);
+
+    &.full-width {
+      width: 100%;
+    }
+
+    &::placeholder {
+      color: $dark-gray;
+      font-size: rem-calc(13);
+      line-height: rem-calc(20);
+    }
+
+  }
+
+  .search-submit {
+    margin: 0;
+    padding: 10px 27px;
+    font-size: rem-calc(17);
+    line-height: rem-calc(25);
+    border: none;
+    color: $white;
+    font-weight: bold;
+    cursor: pointer;
+    @include breakpoint(small down) {
+      width: calc(30% - 10px);
+      padding: 5px 8px;
+      font-size: rem-calc(13);
+    }
+  }
+
+  .search-field,
+  .search-submit {
+    border-radius: 50px;
+    height: 45px;
+
+    &:focus {
+      outline: none;
+    }
+
+    @include breakpoint(small down) {
+      height: 35px;
+    }
+  }
+}
+
+.dark {
+  .search-form {
+    width: 487px;
+    max-width: 100%;
+
+    .search-field {
+      border: 1px solid $white;
+      background: transparent;
+      color: $white;
+
+      &::placeholder {
+        color: $medium-gray;
+
+      }
+    }
+  }
+}
+
+.site-header {
+  .search-form {
+    &.search-form {
+      &--header {
+        position: relative;
+        margin: 0 16px;
+        display: flex;
+        align-items: center;
+
+        .search-form {
+          &__field {
+            max-height: 40px;
+            background: $dark-gray;
+            border: 1px solid $white;
+            border-radius: 50px;
+            outline: none;
+            color: $white;
+            font-size: rem-calc(13);
+            width: 336px;
+            line-height: 1;
+            @include breakpoint(xlarge down) {
+              width: 210px;
+              padding: 5px 10px;
+              max-height: 30px;
+            }
+
+            &::placeholder {
+              color: $white;
+              font-size: rem-calc(13);
+              line-height: 1;
+            }
+
+            &:focus {
+              box-shadow: 0 0 0 transparent;
+
+              .search-form__field {
+                &::placeholder {
+                  opacity: 0.6;
+                }
+              }
+            }
+          }
+
+          &__submit {
+            position: absolute;
+            cursor: pointer;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            z-index: 10;
+            outline: none;
+            background: $dark-gray;
+            @include breakpoint(xlarge down) {
+              height: 18px;
+            }
+
+            .icon {
+              max-width: 100%;
+              max-height: 100%;
+              display: block;
+            }
+
+            &:not(:hover):not(.has-background) {
+              background-color: $dark-gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}

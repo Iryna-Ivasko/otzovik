@@ -1,0 +1,8 @@
+.btn {
+  font-size: rem-calc(17);
+  background: $global-button-gradient;
+  border-radius: 50px;
+  &:hover{
+    opacity: 0.8;
+  }
+}

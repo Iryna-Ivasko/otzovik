@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  @include ii-transition('fill, stroke');
+}
+
+a,
+[type="submit"],
+[type="button"],
+button {
+  transition: all 0.36s ease;
+
+  &:hover {
+    text-decoration: none;
+    opacity: 0.7;
+  }
+}
+
+.site {
+  a {
+    &:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+      outline: none;
+      text-decoration: none;
+      text-decoration-skip-ink: none;
+
+      img {
+        outline: none;
+      }
+    }
+
+    &:focus:not(.wp-block-button__link):not(.wp-block-file__button):not(.btn) {
+      background: transparent;
+
+      &.campaign-link {
+        background: $white;
+      }
+    }
+  }
+
+  .btn {
+    &:focus,
+    &:active,
+    &:visited {
+      background: $global-button-gradient;
+      opacity: 1;
+    }
+  }
+}
+
+body {
+  background: $white;
+  font-family: $body-font-family;
+}
+
+/* Global classes */
+.bold {
+  font-weight: bold;
+}
+
+.section {
+  padding: 50px 0 35px;
+  margin: 0;
+}
+
+/* End global classes */
+
+/* Animations */
+@keyframes rotate{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(720deg);}
+}
+/* End animations */

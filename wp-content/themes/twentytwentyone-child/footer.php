@@ -12,59 +12,100 @@
  */
 
 ?>
-			</main><!-- #main -->
-		</div><!-- #primary -->
-	</div><!-- #content -->
+</main><!-- #main -->
+</div><!-- #primary -->
+</div><!-- #content -->
 
-	<?php get_template_part( 'template-parts/footer/footer-widgets' ); ?>
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <?php if (has_nav_menu('footer')) : ?>
+        <nav aria-label="<?php esc_attr_e('Secondary menu', 'twentytwentyone'); ?>"
+             class="footer-navigation footer-navigation--icons">
+            <ul class="footer-navigation-wrapper">
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'footer',
+                        'items_wrap' => '%3$s',
+                        'container' => false,
+                        'depth' => 1,
+                        'link_before' => '<span>',
+                        'link_after' => '</span>',
+                        'fallback_cb' => false,
+                    )
+                );
+                ?>
+            </ul><!-- .footer-navigation-wrapper -->
+        </nav><!-- .footer-navigation -->
+    <?php endif; ?>
+    <div class="row column">
+        <div class="site-info">
+            <div class="site-info__name">
+                <a class="site-logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                    <?php if (has_custom_logo()) : ?>
+                        <?php
+                        $custom_logo_id = get_theme_mod('custom_logo');
+                        $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+                        ?>
+                        <img src="<?php echo $image[0] ?>" alt="<?php bloginfo('name'); ?>"/>
+                    <?php else : ?>
+                        <?php bloginfo('name'); ?>
+                    <?php endif ?>
+                </a>
+                <div class="copyright info-text">
+                    All rights reserved. © <?= date('Y') ?>
+                </div>
+            </div><!-- .site-name -->
+            <div class="site-info__nav">
+                <?php if (has_nav_menu('footer-menu-1')) : ?>
+                    <nav aria-label="First menu" class="footer-navigation">
+                        <?php $menu_1_title = wp_get_nav_menu_name("footer-menu-1" );
+                        if ($menu_1_title): ?>
+                            <div class="footer-title"><?= $menu_1_title ; ?></div>
+                        <?php endif; ?>
+                        <?php wp_nav_menu(array(
+                            'theme_location' => 'footer-menu-1',
+                            'container' => false,
+                            'menu_class' => 'footer__menu menu',
+                        )); ?>
+                    </nav>
+                <?php endif; ?>
+                <?php if (has_nav_menu('footer-menu-2')) : ?>
+                    <nav aria-label="Second menu" class="footer-navigation">
+                        <?php $menu_2_title = wp_get_nav_menu_name("footer-menu-2" );
+                        if ($menu_2_title): ?>
+                            <div class="footer-title"><?= $menu_2_title ; ?></div>
+                        <?php endif; ?>
+                        <?php wp_nav_menu(array(
+                            'theme_location' => 'footer-menu-2',
+                            'container' => false,
+                            'menu_class' => 'footer__menu menu',
+                        )); ?>
+                    </nav>
+                <?php endif; ?>
+                <?php if (has_nav_menu('footer-menu-3')) : ?>
+                    <nav aria-label="Third menu" class="footer-navigation">
+                        <?php $menu_3_title = wp_get_nav_menu_name("footer-menu-3" );
+                        if ($menu_3_title): ?>
+                            <div class="footer-title"><?= $menu_3_title ; ?></div>
+                        <?php endif; ?>
+                        <?php wp_nav_menu(array(
+                            'theme_location' => 'footer-menu-3',
+                            'container' => false,
+                            'menu_class' => 'footer__menu menu',
+                        )); ?>
+                    </nav>
+                <?php endif; ?>
+            </div> <!-- .site-nav-->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+            <div class="site-info__subscribe">
+                <div class="footer-title">Subscribe</div>
+                <?php get_template_part('template-parts/footer/subscribe-form'); ?>
+                <div class="info-text">Depending on the company, a user experience designer may need to be a jack of all trades</div>
+            </div><!-- .powered-by -->
 
-		<?php if ( has_nav_menu( 'footer' ) ) : ?>
-			<nav aria-label="<?php esc_attr_e( 'Secondary menu', 'twentytwentyone' ); ?>" class="footer-navigation">
-				<ul class="footer-navigation-wrapper">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'footer',
-							'items_wrap'     => '%3$s',
-							'container'      => false,
-							'depth'          => 1,
-							'link_before'    => '<span>',
-							'link_after'     => '</span>',
-							'fallback_cb'    => false,
-						)
-					);
-					?>
-				</ul><!-- .footer-navigation-wrapper -->
-			</nav><!-- .footer-navigation -->
-		<?php endif; ?>
-		<div class="site-info">
-			<div class="site-name">
-				<?php if ( has_custom_logo() ) : ?>
-					<div class="site-logo"><?php the_custom_logo(); ?></div>
-				<?php else : ?>
-					<?php if ( get_bloginfo( 'name' ) && get_theme_mod( 'display_title_and_tagline', true ) ) : ?>
-						<?php if ( is_front_page() && ! is_paged() ) : ?>
-							<?php bloginfo( 'name' ); ?>
-						<?php else : ?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						<?php endif; ?>
-					<?php endif; ?>
-				<?php endif; ?>
-			</div><!-- .site-name -->
-			<div class="powered-by">
-				<?php
-				printf(
-					/* translators: %s: WordPress. */
-					esc_html__( 'Proudly powered by %s.', 'twentytwentyone' ),
-					'<a href="' . esc_url( __( 'https://wordpress.org/', 'twentytwentyone' ) ) . '">WordPress</a>'
-				);
-				?>
-			</div><!-- .powered-by -->
-
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+        </div><!-- .site-info -->
+    </div>
+</footer><!-- #colophon -->
 
 </div><!-- #page -->
 

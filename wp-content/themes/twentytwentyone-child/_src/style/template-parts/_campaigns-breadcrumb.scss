@@ -1,0 +1,9 @@
+.campaigns-breadcrumb {
+  width: 100%;
+  font-size: rem-calc(13);
+  line-height: rem-calc(20);
+  margin-bottom: 20px;
+  @include breakpoint(medium up){
+    margin-bottom: 54px;
+  }
+}

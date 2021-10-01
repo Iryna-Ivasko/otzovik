@@ -1,0 +1,73 @@
+.site-header {
+  color: $white;
+  padding: 10px 0;
+  background: $dark-gray;
+  max-width: 100%;
+
+  &__content {
+    width: 1330px;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .site-logo {
+    padding: 0;
+    margin: 0;
+    max-width: 144px;
+    max-height: 41px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .registration-form {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 481px) {
+      flex-basis: 100%;
+      justify-content: flex-end;
+    }
+
+    &__sign-in {
+      font-size: rem-calc(17);
+      color: $white;
+      display: flex;
+      align-items: center;
+      margin: 0 22px;
+      @include breakpoint(medium down) {
+        margin: 0 10px;
+      }
+
+      .icon {
+        width: auto;
+        height: 20px;
+        margin-right: 10px;
+      }
+    }
+
+    &__login {
+      color: $dark-gray;
+      margin-left: 22px;
+      padding: 7px 17px;
+      @include breakpoint(medium down) {
+        padding: 5px 15px;
+        margin-left: 10px;
+      }
+    }
+
+    &__sign-in,
+    &__login {
+      @include breakpoint(small down) {
+        font-size: rem-calc(14);
+      }
+      @include breakpoint(medium down) {
+        font-size: rem-calc(15);
+      }
+    }
+  }
+}

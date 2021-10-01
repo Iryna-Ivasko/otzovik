@@ -1,0 +1,40 @@
+.subscribe-form-wrapper {
+  .subscribe-form {
+    margin: 5px 0;
+    position: relative;
+
+    &__field {
+      margin: 0;
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 50px;
+      border: 1px solid $white;
+      font-size: rem-calc(15);
+      color: $white;
+      background: transparent;
+      max-height: 45px;
+      &:focus{
+        color: $white;
+      }
+
+      &::placeholder {
+        color: $medium-gray;
+        font-size: rem-calc(13);
+        line-height: rem-calc(20);
+      }
+    }
+
+    &__submit {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      max-height: 70%;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+    }
+  }
+}

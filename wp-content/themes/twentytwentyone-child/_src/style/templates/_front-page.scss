@@ -1,0 +1,160 @@
+.home {
+  .site-content {
+    background: $secondary-color;
+    color: $white;
+    position: relative;
+    overflow: hidden;
+
+    .site-main {
+      position: relative;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      z-index: 0;
+      content: '';
+      width: 315px;
+      height: 700px;
+      max-width: 30vw;
+      max-height: 60vw;
+      background-repeat: no-repeat;
+      @include breakpoint(large down) {
+        background-size: contain;
+      }
+    }
+
+    &:before {
+      top: 60px;
+      right: 0;
+      background-image: url("../img/decor-1.png");
+      background-position: center right;
+      @include breakpoint(large down) {
+        top: 10%;
+      }
+    }
+
+    &:after {
+      bottom: 30px;
+      left: 0;
+      background-image: url("../img/decor-2.png");
+      background-position: center left;
+
+    }
+
+    .section {
+      &--top-banner {
+        padding-top: 57px;
+        padding-bottom: 62px;
+        overflow: hidden;
+
+        .img-wrap {
+          position: relative;
+          @include breakpoint(small down) {
+            margin-bottom: 80px;
+          }
+
+          &:before {
+            position: absolute;
+            z-index: 0;
+            top: 50%;
+            left: 39%;
+            width: calc(100% + 160px);
+            height: calc(100% + 230px);
+            transform: translate(-50%, -50%);
+            content: '';
+            background-image: url("../img/top-banner-decor-min.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            @include breakpoint(medium only) {
+              width: calc(100% + 80px);
+              height: calc(100% + 120px);
+            }
+          }
+
+          .img {
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            @include breakpoint(medium only) {
+              width: 80%;
+            }
+          }
+        }
+
+        .text-wrap {
+          width: 360px;
+          max-width: 100%;
+          margin-bottom: 55px;
+          @include breakpoint(small down) {
+            margin-bottom: 30px;
+          }
+
+          .section {
+            &__title {
+              margin-bottom: 20px;
+              line-height: 1.2;
+            }
+
+            &__description {
+              font-size: rem-calc(17);
+            }
+          }
+
+          .add-company {
+            color: $white;
+            font-size: rem-calc(17);
+            font-weight: bold;
+            position: relative;
+            line-height: rem-calc(25);
+            margin-top: 20px;
+            display: inline-block;
+
+            &:after {
+              position: absolute;
+              top: 50%;
+              right: -30px;
+              transform: translate(-100%, -50%);
+              content: '';
+              width: 7px;
+              height: 10px;
+              background-image: url("../img/Arrow-min.png");
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+          }
+        }
+      }
+
+      &--campaigns {
+        padding-top: 0;
+
+        .campaigns-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          z-index: 10;
+          @include breakpoint(small down) {
+            justify-content: center;
+          }
+
+          .filter {
+            width: auto;
+            @include breakpoint(medium up) {
+              width: 200px;
+              margin-right: 38px;
+            }
+          }
+
+          .response-wrapper{
+            @include breakpoint(medium up) {
+              width: calc(100% - 238px);
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
