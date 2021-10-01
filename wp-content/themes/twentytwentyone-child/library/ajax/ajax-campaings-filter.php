@@ -1,6 +1,6 @@
 <?php
 add_action('wp_ajax_campaigns_filter', 'ii_campaigns_filter_function'); // wp_ajax_{ACTION HERE}
-add_action('wp_ajax_campaigns_filter', 'ii_campaigns_filter_function');
+add_action('wp_ajax_nopriv_campaigns_filter', 'ii_campaigns_filter_function');
 
 function ii_campaigns_filter_function()
 {
