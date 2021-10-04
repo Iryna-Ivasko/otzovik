@@ -67,6 +67,7 @@
       display: flex;
       flex-wrap: wrap;
       flex-grow: 1;
+      max-width: 100%;
       @include breakpoint(small down){
         margin-left: -15px;
         margin-right: -15px;
